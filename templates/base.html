@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block titile %} <title>Администрировние</title> {% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+</head>
+
+<body class="hero has-background-ligh is-fullheight" style="background-color:#d8d8da50;">
+    <header class="hero-head" style = "background-color:#209cee">
+        <nav class="navbar">
+            <div class="container">
+                <div id="navbarMenuHeroA" class="navbar-menu ">
+                    <div class="navbar-end">
+                        <a href="/admin/dashboard/" class="navbar-item has-text-white">
+                           Главная панель
+                        </a>
+                        <a href="/admin/settings/" class="navbar-item has-text-white">
+                            Настройки
+                        </a>
+                        <a href="/admin/docs/" class="navbar-item has-text-white">
+                            Документация
+                        </a>
+                        <a href="#" class="navbar-item has-text-white">
+                            Открыть сайт
+                        </a>
+                        <a href="#" class="navbar-item has-text-white">
+                            Выйти
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>            
+    </header>
+        
+    <div class="columns is-mobile hero-body" style = "display: -webkit-inline-flex; align-items: first baseline;">            
+        <aside class="column is-3">
+            {% block aside_nav %}  
+            <section>
+                <article class="column panel">
+                    {% for name in tables %}
+                    <p class="panel-heading has-text-white" style = "background-color:#209cee"> Таблицы </p>
+                    <a class="panel-block" href="/admin/tables/{{name}}/"> 
+                        <span class="panel-icon"> <i class="fas fa-book" aria-hidden="true"></i></span>
+                        {{name}}
+                    </a>
+                    {% endfor %}
+                </article>
+            </section>
+            {% endblock %}
+        </aside>
+        <main class="column is-9">
+            {% block content %}
+            <h1>Добро пажаловать на главную панель администрирования</h1>
+            {% endblock %}
+        </main> 
+
+    </div>            
+    
+    <div class="container has-text-centered">              
+    </div>
+</body>
+
+</html>
