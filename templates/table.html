@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form method="POST" action="/admin/tables/{{model_name}}/delete">
+
+<form method="POST" action="/{{model_name}}/delete">
   <table class="table is-fullwidth">
     <thead style = "background-color:#209cee">
       <tr>
@@ -15,15 +16,14 @@
         <td> 
             <input type="checkbox"  name="checkbox" value="{{obj["id"]}}">
         </td>
-        {% for v in obj.values() %}  <td>  {{ v }}  </td> {% endfor %}
-      </tr> 
+        {% for v in obj.values() %}  <td>  {{ v }}  </td> {% endfor %}</tr> 
       {% endfor %}
       </tr>
     </tbody>
   </table>
-  <input type="submit"  style=" position: fixed; bottom: 15px; right: 20px;"class="button is-danger is-light"></button>
+  <input type="submit"  style=" position: fixed; bottom: 15px; right: 10px;"class="button is-danger is-light">Удалить выбранные</button>
 </form> 
-<a  href="/admin/tables/{{model_name}}/create" style=" position: fixed; bottom: 15px; right: 200px;" class="button is-info is-light">Создать запись</a>
+<button style=" position: fixed; bottom: 15px; right: 200px;" class="button is-info is-light">Создать запись</button>
 <div class="breadcrumb is-small" aria-label="breadcrumbs">
     <ul>
       <li><a href="#">admin</a></li>

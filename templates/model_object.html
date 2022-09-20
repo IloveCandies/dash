@@ -1,9 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form method="POST" action="/{{model_name}}/create">
-  <input type="submit"  style=" position: fixed; bottom: 15px; right: 10px;" class="button is-info is-light"></button>
-</form> 
+<form  class="" method="POST" action="/admin/tables/{{model_name}}/create">
+  <div class="card ">
+    <header class="card-header" style = "background-color:#209cee"> 
+      <p class="has-text-white card-header-title"> Создание обьекта </p> 
+    </header>
+    <div class="card-content">
+      <div class="content">
+        {% for field, type in  model_fields.items() %}
+        <label  for="{{field}}">{{field}}</label> <br>
+        <input style="width: 100%" type="{{type}}" name="{{field}}" id="{{field}}"><br>
+        {% endfor %}
+      </div>
+    </div>
+    <footer class="card-footer">
+      <input type="submit" class="card-footer-item" value="Создать" />
+    </footer>
+  </div>
+</form>
+
 <div class="breadcrumb is-small" aria-label="breadcrumbs">
     <ul>
       <li><a href="#">admin</a></li>
