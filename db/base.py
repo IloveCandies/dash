@@ -35,7 +35,7 @@ class Database:
             if hasattr(cl, '__tablename__') and cl.__tablename__ == tablename:
                 return cl    
 
-DB = Database()
+DB = Database(UserMixin,DB.base)
 #(UserMixin,DB.base) for flask.login
 
 
